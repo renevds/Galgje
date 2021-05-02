@@ -57,7 +57,6 @@ function done() {
 function wrong(){
     level += 1;
     load(level);
-    document.getElementById("halgje_image").src = "afbeeldingen/galgje" + level + ".png";
     if(level === 6){
         finished = true;
         dead();
