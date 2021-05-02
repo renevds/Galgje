@@ -7,6 +7,7 @@ body{
 }
 
 #halgje_image{
+    display: none;
     height: 35vh;
     margin-top: 5vh;
 }
@@ -76,3 +77,12 @@ body{
     }
 }
 
+#model{
+    height: 35vh;
+    width: 35vh;
+    margin: auto;
+}
+
+#knoppen{
+    width: 100%;
+}

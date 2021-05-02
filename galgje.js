@@ -1,7 +1,7 @@
 let filter;
 let busy = false;
 let todo = [];
-let level = 0;
+let level = 1;
 let finished = false;
 let buttons = [];
 
@@ -56,8 +56,9 @@ function done() {
 
 function wrong(){
     level += 1;
+    load(level);
     document.getElementById("halgje_image").src = "afbeeldingen/galgje" + level + ".png";
-    if(level == 9){
+    if(level === 6){
         finished = true;
         dead();
     }
