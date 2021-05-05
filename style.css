@@ -27,9 +27,34 @@ body{
     border: 4px rgba(29,29,27,.15) solid;
     box-shadow: inset 0px 2px 0px 0px rgb(255 255 255 / 15%), 0px 3px 0px 0px rgb(255 255 255 / 15%);
     height: 80vh;
-    margin-top: 10vh;
     border-radius: 1em;
     font-size: 1.3vh;
+}
+
+#refreshdiv{
+    height: 10vh;
+}
+
+#refresh{
+    height: 50%;
+    margin: 4%;
+    padding: 1%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 7px;
+    background-color: rgba(38, 28, 92, 0.3);
+    display: inline-block;
+    font-weight: 500;
+    color: white;
+    font-size: 2vh;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: greenyellow;
 }
 
 .button{
