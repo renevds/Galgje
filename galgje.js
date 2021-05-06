@@ -5,6 +5,8 @@ let level = 1;
 let finished = false;
 let buttons = [];
 
+let exclude = [];
+
 newFilter();
 
 
@@ -19,7 +21,7 @@ function guessLetter(a, recursive = false) {
     if(!finished) {
         if (!busy || recursive) {
             busy = true;
-            const data = {value: a, filter: filter};
+            const data = {value: a, filter: filter, exclude:exclude};
             fetch(`cgi-bin/letter.cgi?data=${JSON.stringify(data)}`)
                 .then(antwoord => antwoord.json())
                 .then(data => handleGuess(data))
@@ -30,6 +32,8 @@ function guessLetter(a, recursive = false) {
 }
 
 function handleGuess(guess) {
+    exclude = guess['exclude']
+    console.log(guess['filter'])
     if(guess['mistake']){
         wrong();
     }
@@ -85,7 +89,7 @@ function setFilter(newFilter){
 }
 
 for (i = 0; i < 26; i++) {
-    var button = document.createElement("button");
+    const button = document.createElement("button");
     button.innerHTML = "Do Something";
     const letter = (i + 10).toString(36)
     button.innerHTML = letter.toUpperCase();

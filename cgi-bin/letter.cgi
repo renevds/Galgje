@@ -9,4 +9,4 @@ data = json.loads(parameters.getvalue('data'))
 
 print("Content-Type: application/json")
 print()
-print(json.dumps(guess_letter(data['value'], data['filter'])))
+print(json.dumps(guess_letter(data['value'], data['filter'], data['exclude'])))

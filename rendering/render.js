@@ -31,7 +31,6 @@ let earth;
 
 
 function load(number) {
-    console.log("load "+ number);
     loader.load(
         'models/earth' + number + '.gltf',
         function (gltf) {
@@ -52,7 +51,7 @@ function load(number) {
         },
         function (xhr) {
 
-            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            //console.log((xhr.loaded / xhr.total * 100) + '% loaded');
 
         },
         function (error) {
