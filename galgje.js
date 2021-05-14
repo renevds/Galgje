@@ -12,7 +12,10 @@ newFilter();
 function newFilter(){
     fetch(`cgi-bin/new_filter.cgi`)
         .then(antwoord => antwoord.json())
-        .then(data => setFilter(data['filter']))
+        .then(data => {
+            setFilter(data['filter'])
+            document.getElementById("word_container").style.visibility = "visible";
+        })
 }
 
 

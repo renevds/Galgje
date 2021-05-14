@@ -15,6 +15,7 @@ body{
     border-radius: 0.5em;
     border: 3px rgba(255,255,255,.3) solid;
     font-weight: 700;
+    visibility: hidden;
 }
 
 .letter-span{
