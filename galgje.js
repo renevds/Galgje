@@ -22,9 +22,9 @@ function newFilter(){
 function guessLetter(letter, recursive = false) {
     if(!finished) {
         if (!busy || recursive) {
-            exclude.push(letter);
+            exclude.push(letter)
             busy = true;
-            const data = {value: letter, filter: filter, exclude:exclude};
+            const data = {letter: letter, filter: filter, exclude:exclude};
             fetch(`cgi-bin/letter.cgi?data=${JSON.stringify(data)}`)
                 .then(antwoord => antwoord.json())
                 .then(data => handleGuess(data))

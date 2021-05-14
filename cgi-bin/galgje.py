@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 import random
 
 
 def get_all_words(length=""):
-    #word file has been split to file with words of each length using createFilePerSize.py
+    # word file has been split to file with words of each length using createFilePerSize.py
     words = []
     for i in open(f"woorden/woorden{length}.txt", 'r'):
         words.append(i.rstrip("\n").upper())
@@ -15,12 +15,21 @@ def get_new_filter():
 
 
 def guess_letter(letter: str, filter_str: str, exclude: list):
+    if 15 < len(filter_str) or len(filter_str) < 5:
+        return error("Invalid filter size")
+
+    if letter in filter_str:
+        return error("Letter already used")
+
     letter = letter.upper()
     words = get_all_words(str(len(filter_str)))
     exclude = [i.upper() for i in exclude]
-    exclude.append(letter)
     solution = recursive_filter(filter_str, letter, exclude, 0, words, 0)
     return {'filter': solution[0], 'mistake': solution[0] == filter_str, 'done': ("_" not in solution[0])}
+
+
+def error(message: str):
+    return {'error: ': message}
 
 
 def recursive_filter(filter_str: str, letter: str, exclude: list, pos: int, words: list, bound: int):
