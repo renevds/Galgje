@@ -9,7 +9,6 @@ let exclude = [];
 
 newFilter();
 
-
 function newFilter(){
     fetch(`cgi-bin/new_filter.cgi`)
         .then(antwoord => antwoord.json())
@@ -17,22 +16,22 @@ function newFilter(){
 }
 
 
-function guessLetter(a, recursive = false) {
+function guessLetter(letter, recursive = false) {
     if(!finished) {
         if (!busy || recursive) {
+            exclude.push(letter);
             busy = true;
-            const data = {value: a, filter: filter, exclude:exclude};
+            const data = {value: letter, filter: filter, exclude:exclude};
             fetch(`cgi-bin/letter.cgi?data=${JSON.stringify(data)}`)
                 .then(antwoord => antwoord.json())
                 .then(data => handleGuess(data))
         } else {
-            todo.push(a);
+            todo.push(letter);
         }
     }
 }
 
 function handleGuess(guess) {
-    exclude = guess['exclude']
     console.log(guess['filter'])
     if(guess['mistake']){
         wrong();
@@ -80,7 +79,7 @@ function disableAllButtons() {
 
 function setFilter(newFilter){
     filter = newFilter;
-    let temp_filter = filter.replaceAll(".", "_");
+    let temp_filter = filter
     let wordDiv = document.getElementById("word_container")
     wordDiv.innerHTML = "";
     for (var i = 0; i < temp_filter.length; i++) {
