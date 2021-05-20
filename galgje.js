@@ -86,7 +86,12 @@ function setFilter(newFilter){
     let wordDiv = document.getElementById("word_container")
     wordDiv.innerHTML = "";
     for (var i = 0; i < temp_filter.length; i++) {
-        wordDiv.innerHTML += "<span class='letter-span'>" + temp_filter.charAt(i) + "</span>"
+        if(temp_filter[i] !== "_") {
+            wordDiv.innerHTML += "<span class='letter-span'>" + temp_filter[i] + "</span>"
+        }
+        else {
+            wordDiv.innerHTML += "<span class='letter-span'><i class='far fa-question-circle'></i></span>"
+        }
     }
 }
 

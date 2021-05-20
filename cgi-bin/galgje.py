@@ -1,4 +1,5 @@
 # !/usr/bin/env python3
+import datetime
 import random
 
 
@@ -73,3 +74,10 @@ def recursive_filter(filter_str: str, letter: str, exclude: list, pos: int, word
             if word[pos] == curletter:
                 newwords.append(word)
         return recursive_filter(filter_str, letter, exclude, pos + 1, newwords, bound)
+
+if __name__ == '__main__':
+    begin_time = datetime.datetime.now()
+    for i in range(100):
+        guess_letter("A", "_______", [])
+    print((datetime.datetime.now() - begin_time))
+    print((datetime.datetime.now() - begin_time) / 100)
