@@ -16,7 +16,6 @@ camera.position.set(0,0,15);
 
 light = new THREE.DirectionalLight( 0xffffff );
 light.intensity = 3;
-console.log(light)
 camera.add(light);
 scene.add(camera);
 
@@ -34,7 +33,6 @@ function load(number) {
     loader.load(
         'models/earth' + number + '.gltf',
         function (gltf) {
-            console.log("load "+ number);
             if(earth !== undefined){
                 scene.remove(earth)
             }
@@ -55,8 +53,6 @@ function load(number) {
 
         },
         function (error) {
-
-            console.log('An error happened');
 
         }
     );
