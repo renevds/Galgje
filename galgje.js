@@ -13,7 +13,7 @@ function newFilter(){
     fetch(`cgi-bin/new_filter.cgi`)
         .then(antwoord => antwoord.json())
         .then(data => {
-            setFilter(data['filter'])
+            setFilter(data['filter']);
             document.getElementById("word_container").style.visibility = "visible";
         })
 }
@@ -27,7 +27,7 @@ function guessLetter(letter, recursive = false) {
             const data = {letter: letter, filter: filter, exclude:exclude};
             fetch(`cgi-bin/letter.cgi?data=${JSON.stringify(data)}`)
                 .then(antwoord => antwoord.json())
-                .then(data => handleGuess(data))
+                .then(data => handleGuess(data));
         } else {
             todo.push(letter);
         }
@@ -40,14 +40,14 @@ function handleGuess(guess) {
     }
     else if(guess['done']){
         done();
-        setFilter(guess['filter'])
+        setFilter(guess['filter']);
     }
     else {
-        setFilter(guess['filter'])
+        setFilter(guess['filter']);
     }
 
     if (todo.length > 0) {
-        guessLetter(todo.shift(), true)
+        guessLetter(todo.shift(), true);
     } else {
         busy = false;
     }
@@ -81,15 +81,15 @@ function disableAllButtons() {
 
 function setFilter(newFilter){
     filter = newFilter;
-    let temp_filter = filter
-    let wordDiv = document.getElementById("word_container")
+    let temp_filter = filter;
+    let wordDiv = document.getElementById("word_container");
     wordDiv.innerHTML = "";
     for (var i = 0; i < temp_filter.length; i++) {
         if(temp_filter[i] !== "_") {
-            wordDiv.innerHTML += "<span class='letter-span'>" + temp_filter[i] + "</span>"
+            wordDiv.innerHTML += "<span class='letter-span'>" + temp_filter[i] + "</span>";
         }
         else {
-            wordDiv.innerHTML += "<span class='letter-span'><i class='far fa-question-circle'></i></span>"
+            wordDiv.innerHTML += "<span class='letter-span'><i class='far fa-question-circle'></i></span>";
         }
     }
 }
@@ -97,7 +97,7 @@ function setFilter(newFilter){
 for (i = 0; i < 26; i++) {
     const button = document.createElement("button");
     button.innerHTML = "Do Something";
-    const letter = (i + 10).toString(36)
+    const letter = (i + 10).toString(36);
     button.innerHTML = letter.toUpperCase();
     button.classList.add("button");
     button.onclick = function (e){

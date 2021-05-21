@@ -8,3 +8,5 @@
 ### sources
 - Model used as basis for different earth models: [Blend Swap](https://blendswap.com/blend/19481)  
 - Background image: [Vecteezy](https://www.vecteezy.com/vector-art/1589630-green-background-with-fading-square-and-dots)
+
+(Lowered the maximum lives from 9 to 6 to make the game even more challenging and decrease the amount of models needed)
