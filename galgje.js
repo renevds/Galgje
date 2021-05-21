@@ -35,7 +35,6 @@ function guessLetter(letter, recursive = false) {
 }
 
 function handleGuess(guess) {
-    console.log(guess['filter'])
     if(guess['mistake']){
         wrong();
     }

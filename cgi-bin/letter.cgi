@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import json
 import cgi
-from galgje import guess_letter
+from spel import guess_letter
 
 # Lees data verstuurd door JavaScript
 parameters = cgi.FieldStorage()

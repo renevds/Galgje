@@ -1,6 +1,7 @@
 # !/usr/bin/env python3
 import datetime
 import random
+import string
 
 
 def get_all_words(length=""):
@@ -21,6 +22,17 @@ def guess_letter(letter: str, filter_str: str, exclude: list):
 
     if letter in filter_str:
         return error("Letter already used")
+
+    has_steps_left = False
+
+    for i in filter_str:
+        if not (i in string.ascii_uppercase or i == '_'):
+            return error("Invalid character in filter")
+        if i == '_':
+            has_steps_left = True
+
+    if not has_steps_left:
+        return error("No empty positions in filter left")
 
     letter = letter.upper()
     words = get_all_words(str(len(filter_str)))
