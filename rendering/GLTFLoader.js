@@ -1,3 +1,4 @@
+//three.js extension for loading GLTF (not written by me)
 ( function () {
 
 	class GLTFLoader extends THREE.Loader {
